@@ -28,6 +28,7 @@ import org.apache.beam.sdk.options.PipelineOptionsFactory;
 import org.apache.beam.sdk.transforms.*;
 import org.apache.beam.sdk.values.KV;
 import org.apache.beam.sdk.values.PCollection;
+import org.apache.flink.api.java.summarize.aggregation.Aggregator;
 
 public class WordCount {
 

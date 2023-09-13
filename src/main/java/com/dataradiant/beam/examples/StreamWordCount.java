@@ -33,6 +33,7 @@ import org.apache.beam.sdk.values.KV;
 import org.apache.beam.sdk.values.PCollection;
 import org.apache.beam.sdk.coders.StringUtf8Coder;
 import com.google.common.collect.ImmutableMap;
+import org.apache.flink.api.common.aggregators.Aggregator;
 import org.joda.time.Duration;
 import java.util.Arrays;
 
@@ -45,7 +46,8 @@ public class StreamWordCount {
     @Override
     public void processElement(ProcessContext c) {
       if (c.element().trim().isEmpty()) {
-        emptyLines.addValue(1L);
+        emptyLines.aggregate(1L);
+        //emptyLines.addValue(1L);
       }
 
       // Split the line into words.
